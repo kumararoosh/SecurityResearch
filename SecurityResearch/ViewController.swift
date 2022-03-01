@@ -12,6 +12,7 @@ import RealityKit
 class ViewController: UIViewController {
     
     @IBOutlet var arView: ARView!
+    var total = 0
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         let touch = arView.center
@@ -21,15 +22,18 @@ class ViewController: UIViewController {
         let box = ModelEntity(mesh: mesh01, materials: [SimpleMaterial(color: .red, isMetallic: false)])
         box.generateCollisionShapes(recursive: true)
         box.name = "Box"
-       
-        if let result: CollisionCastHit = results.first {
-            print(result.entity.name)
-        } else {
-            if let raycastResult: ARRaycastResult = arView.raycast(from: arView.center, allowing: .estimatedPlane, alignment: .horizontal).last {
+        
+        var count = 0
+        
+        while (count < 100) {
+            count += 1
+            total += 1
+            if let raycastResult: ARRaycastResult = arView.raycast(from: arView.center, allowing: .estimatedPlane, alignment: .any).last {
                 
                 let planeAnchor: AnchorEntity = AnchorEntity(raycastResult: raycastResult)
                 box.setParent(planeAnchor)
                 arView.scene.addAnchor(planeAnchor)
+                debugPrint("Number of objects ", total)
             }
         }
         
