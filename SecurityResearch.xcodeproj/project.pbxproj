@@ -16,6 +16,7 @@
 		DB04893127C8997C00904745 /* SecurityResearchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB04893027C8997C00904745 /* SecurityResearchTests.swift */; };
 		DB04893B27C8997C00904745 /* SecurityResearchUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB04893A27C8997C00904745 /* SecurityResearchUITests.swift */; };
 		DB04893D27C8997C00904745 /* SecurityResearchUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB04893C27C8997C00904745 /* SecurityResearchUITestsLaunchTests.swift */; };
+		DBCC986A28133EFD00820360 /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = DBCC986928133EFD00820360 /* Toast */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DBCC986A28133EFD00820360 /* Toast in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,6 +143,9 @@
 			dependencies = (
 			);
 			name = SecurityResearch;
+			packageProductDependencies = (
+				DBCC986928133EFD00820360 /* Toast */,
+			);
 			productName = SecurityResearch;
 			productReference = DB04891727C8997200904745 /* SecurityResearch.app */;
 			productType = "com.apple.product-type.application";
@@ -213,6 +218,9 @@
 				Base,
 			);
 			mainGroup = DB04890E27C8997200904745;
+			packageReferences = (
+				DBCC986828133EFD00820360 /* XCRemoteSwiftPackageReference "Toast-Swift" */,
+			);
 			productRefGroup = DB04891827C8997200904745 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -606,6 +614,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		DBCC986828133EFD00820360 /* XCRemoteSwiftPackageReference "Toast-Swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/scalessec/Toast-Swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		DBCC986928133EFD00820360 /* Toast */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DBCC986828133EFD00820360 /* XCRemoteSwiftPackageReference "Toast-Swift" */;
+			productName = Toast;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = DB04890F27C8997200904745 /* Project object */;
 }
