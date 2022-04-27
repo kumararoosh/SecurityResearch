@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="38d-vD-IVS">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="38d-vD-IVS">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -12,6 +11,10 @@
         <scene sceneID="cJE-Gy-y0d">
             <objects>
                 <viewController id="38d-vD-IVS" userLabel="ARView" customClass="ViewController" customModule="SecurityResearch" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="dos-fA-yWu"/>
+                        <viewControllerLayoutGuide type="bottom" id="IIH-2c-TbA"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="wuu-F9-cS4">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -19,8 +22,16 @@
                             <arView multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aQf-9c-i1S" userLabel="ARView">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
                             </arView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cdw-MY-pFg" userLabel="Place Anchor">
+                                <rect key="frame" x="20" y="656" width="109.5" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Place Anchor"/>
+                                <connections>
+                                    <action selector="onPlaceAnchorClick:" destination="38d-vD-IVS" eventType="touchDown" id="xuG-Ty-Qa4"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BGD-eY-Gdd">
-                                <rect key="frame" x="20" y="743" width="112.5" height="31"/>
+                                <rect key="frame" x="20" y="707" width="112.5" height="31"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Component A"/>
                                 <connections>
@@ -28,33 +39,68 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rjr-zC-fJG">
-                                <rect key="frame" x="20" y="797" width="112.5" height="31"/>
+                                <rect key="frame" x="20" y="761" width="112.5" height="31"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Component B"/>
                                 <connections>
                                     <action selector="onComponentBClick:" destination="38d-vD-IVS" eventType="touchDown" id="Yo6-9p-QI5"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Cube 1, Clicked 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2qm-FB-CGs" userLabel="Cube1Count">
+                                <rect key="frame" x="20" y="52" width="176" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Cube 3, Clicked 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cxR-s4-qRO" userLabel="Cube3Count">
+                                <rect key="frame" x="20" y="110" width="176" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Cube 4, Clicked 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KaF-IS-BRw" userLabel="Cube4Count">
+                                <rect key="frame" x="20" y="139" width="176" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Cube 2, Clicked 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qTL-GA-2sv" userLabel="Cube2Count">
+                                <rect key="frame" x="20" y="81" width="176" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="uf0-04-R3V"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="uf0-04-R3V" firstAttribute="bottom" secondItem="Rjr-zC-fJG" secondAttribute="bottom" constant="34" id="0UO-EG-C6d"/>
                             <constraint firstItem="aQf-9c-i1S" firstAttribute="top" secondItem="wuu-F9-cS4" secondAttribute="top" id="5QT-91-5qu"/>
-                            <constraint firstItem="uf0-04-R3V" firstAttribute="trailing" secondItem="aQf-9c-i1S" secondAttribute="trailing" id="BVI-Nk-w1U"/>
-                            <constraint firstItem="uf0-04-R3V" firstAttribute="bottom" secondItem="aQf-9c-i1S" secondAttribute="bottom" id="EE7-HT-Ojh"/>
-                            <constraint firstItem="BGD-eY-Gdd" firstAttribute="leading" secondItem="uf0-04-R3V" secondAttribute="leading" constant="20" id="FtT-VF-BIM"/>
-                            <constraint firstItem="aQf-9c-i1S" firstAttribute="leading" secondItem="uf0-04-R3V" secondAttribute="leading" id="ana-MT-8Ge"/>
-                            <constraint firstItem="uf0-04-R3V" firstAttribute="bottom" secondItem="aQf-9c-i1S" secondAttribute="bottom" id="bgQ-U4-pBs"/>
-                            <constraint firstItem="Rjr-zC-fJG" firstAttribute="leading" secondItem="uf0-04-R3V" secondAttribute="leading" constant="20" id="hxT-yZ-mHf"/>
-                            <constraint firstItem="uf0-04-R3V" firstAttribute="bottom" secondItem="aQf-9c-i1S" secondAttribute="bottom" id="mvi-Sb-FuQ"/>
+                            <constraint firstAttribute="trailing" secondItem="aQf-9c-i1S" secondAttribute="trailing" id="BVI-Nk-w1U"/>
+                            <constraint firstItem="IIH-2c-TbA" firstAttribute="top" secondItem="aQf-9c-i1S" secondAttribute="bottom" id="EE7-HT-Ojh"/>
+                            <constraint firstItem="BGD-eY-Gdd" firstAttribute="top" secondItem="cdw-MY-pFg" secondAttribute="bottom" constant="20" id="EWT-1p-kHP"/>
+                            <constraint firstItem="BGD-eY-Gdd" firstAttribute="leading" secondItem="wuu-F9-cS4" secondAttribute="leading" constant="20" id="FtT-VF-BIM"/>
+                            <constraint firstItem="BGD-eY-Gdd" firstAttribute="top" secondItem="cdw-MY-pFg" secondAttribute="bottom" constant="20" id="HVJ-9n-i6P"/>
+                            <constraint firstItem="aQf-9c-i1S" firstAttribute="leading" secondItem="wuu-F9-cS4" secondAttribute="leading" id="ana-MT-8Ge"/>
+                            <constraint firstItem="IIH-2c-TbA" firstAttribute="top" secondItem="aQf-9c-i1S" secondAttribute="bottom" id="bgQ-U4-pBs"/>
+                            <constraint firstItem="IIH-2c-TbA" firstAttribute="top" secondItem="Rjr-zC-fJG" secondAttribute="bottom" constant="70" id="cMG-cF-TRo"/>
+                            <constraint firstItem="Rjr-zC-fJG" firstAttribute="leading" secondItem="wuu-F9-cS4" secondAttribute="leading" constant="20" id="hxT-yZ-mHf"/>
+                            <constraint firstItem="IIH-2c-TbA" firstAttribute="top" secondItem="aQf-9c-i1S" secondAttribute="bottom" id="mvi-Sb-FuQ"/>
                             <constraint firstItem="Rjr-zC-fJG" firstAttribute="top" secondItem="BGD-eY-Gdd" secondAttribute="bottom" constant="23" id="oT8-nZ-onM"/>
+                            <constraint firstItem="cdw-MY-pFg" firstAttribute="leading" secondItem="wuu-F9-cS4" secondAttribute="leadingMargin" id="tzv-RG-HcH"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="Cube1Count" destination="2qm-FB-CGs" id="zu9-j2-SJQ"/>
+                        <outlet property="Cube2Count" destination="qTL-GA-2sv" id="d1b-hg-au2"/>
+                        <outlet property="Cube3Count" destination="cxR-s4-qRO" id="tCw-IQ-aI6"/>
+                        <outlet property="Cube4Count" destination="KaF-IS-BRw" id="C1u-Dt-TCZ"/>
                         <outlet property="arView" destination="aQf-9c-i1S" id="iMr-fK-KeX"/>
                         <outlet property="componentAButton" destination="BGD-eY-Gdd" id="FTK-QY-oe7"/>
                         <outlet property="componentBButton" destination="Rjr-zC-fJG" id="vBV-4Y-0fp"/>
+                        <outlet property="placeAnchorButton" destination="cdw-MY-pFg" id="7Wv-aO-eGJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QrJ-eq-k9h" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
